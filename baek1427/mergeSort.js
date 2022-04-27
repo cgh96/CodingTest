@@ -1,8 +1,7 @@
 'user strict'
 const fs = require('fs');
 const { arrayBuffer } = require('stream/consumers');
-const input = fs.readFileSync('./baek1427/example.txt').toString().split('\n');
-
+const input = fs.readFileSync('./baek1427/example.txt').toString().trim().split('\n');
 let arr = input.toString().split('').map(Number);
 
 const mergeSort = function (args) {

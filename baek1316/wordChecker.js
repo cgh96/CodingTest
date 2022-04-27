@@ -16,13 +16,13 @@ for(let i = 1; i<=count; i++){
             arr.push(temp[j]);           ////or -1반환 (indexOf)
         }
         else{
-            if(arr.indexOf(temp[j]) ==! arr.length-1){
+            if(arr.indexOf(temp[j]) !== arr.length-1){
                 check = false;
                 break;
             }
         }
     }
-    if(check === true){
+    if(check===true){
         wordCounter++;
     }
 }
