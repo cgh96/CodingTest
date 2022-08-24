@@ -16,7 +16,7 @@ function solution(s) {
             s = s.replace(num[0], num[1]);        
         }
     }
-    console.log(s);
+
     return Number(s);
 }
 
