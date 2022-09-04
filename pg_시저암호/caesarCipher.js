@@ -2,18 +2,25 @@ function solution(s, n) {
     s = s
         .split("")
         .map( elem => {
-           if(elem.charCodeAt() === 90) {
-                return elem = String.fromCharCode(64 + n);
-           } else if(elem.charCodeAt() === 122) {
-                return elem = String.fromCharCode(96 + n);
-           } else if (elem === " ") {
-                return elem;
-           } else {
+            if(elem.charCodeAt() >= 65 && elem.charCodeAt() <= 90) { //대문자
+                if(elem.charCodeAt() + n > 90) {
+                    elem = elem.charCodeAt() + n - 26;
+                    return String.fromCharCode(elem);
+                }
                 elem = elem.charCodeAt() + n;
-                return elem = String.fromCharCode(elem);
-           }
+                return String.fromCharCode(elem);
+            } else if(elem === " "){
+                return elem;
+            }else {
+                //소문자
+                if(elem.charCodeAt() + n > 122) {
+                    elem = elem.charCodeAt() + n -26;
+                    return String.fromCharCode(elem);
+                }
+                elem = elem.charCodeAt() + n;
+                return String.fromCharCode(elem);
+            }
         }).join("");
-    console.log(s);
     return s;
 }
 
