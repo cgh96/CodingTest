@@ -31,7 +31,6 @@ function solution(dartResult) {
     );
 
     answer = table.reduce( (acc, cur) => acc + cur );
-    console.log(answer);
     return answer;
 }
 

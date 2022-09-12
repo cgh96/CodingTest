@@ -22,13 +22,13 @@ function solution(answers) {
         }
     }
 
-    for(let num = 1; num < answer.length; num++) {
+    for(let i = 1; i < answer.length; i++) {
         if(answer[0] < answer[i]) {
             rank = [];
-            rank.push(i);
+            rank.push(i + 1);
             answer[0] = answer[i];
         } else if(answer[0] === answer[i]) {
-            rank.push(i);
+            rank.push(i + 1);
         }
     }
     

@@ -8,8 +8,6 @@ function solution(N, stages) {
         failureRate.push([i, failurePeople / approachPeople]);
     } 
 
-    console.log(failureRate);
-
     failureRate.sort( (a, b) => b[1] - a[1]).forEach(
         elem => answer.push(elem[0])
     );
