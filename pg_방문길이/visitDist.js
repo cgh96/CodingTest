@@ -31,8 +31,8 @@ function solution(dirs) {
             }
         } else if(elem === "R") {
             if( start[0] === 5) { continue; }
-            if(!path.find(e => e[0] === start[0] && e[1] === start[1] && e[2] === "R"
-            && !path.find(e => e[0] === start[0] + 1 && e[1] === start[1] && e[2] === "L"))
+            if(!path.find(e => e[0] === start[0] && e[1] === start[1] && e[2] === "R")
+            && !path.find(e => e[0] === start[0] + 1 && e[1] === start[1] && e[2] === "L")
             ) {
                 count++;
                 path.push([...start, "R"]);
@@ -51,14 +51,14 @@ function solution(dirs) {
                 start[0]--;
                 path.push([...start, "R"]);
             } else {
-                start[0]++;
+                start[0]--;
             }
         }
     };
     return count;
 }
 
-solution("LULLLLLLLLU");
+solution("LLRR");
 
 /**
  [x, y]
