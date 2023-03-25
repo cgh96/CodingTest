@@ -37,7 +37,6 @@ for (let i = 4; i <= countArray.length; i++) {
     countArray[i] = countArray[i - 1] + 1;
   }
 }
-
 console.log(countArray[x]);
 /**
  * if (x % 3 === 0) { x / 3 }
