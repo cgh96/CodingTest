@@ -16,7 +16,6 @@ for (let i = 0; i < input.length; i++) {
 }
 
 graph = graph.map((e) => e.sort((a, b) => a - b));
-console.log(graph);
 
 DFS();
 BFS();
@@ -47,26 +46,22 @@ function BFS() {
 function DFS() {
   const visited = new Array(N + 1).fill(false);
   visited[0] = true;
-  visited[V] = true;
   const stack = [V];
-  let current = V;
-  const path = [V];
+  let answer = "";
 
   while (stack.length) {
-    for (let i = 0; i < graph[current]?.length; i++) {
-      if (!visited[graph[current][i]]) {
-        stack.push(graph[current][i]);
-        current = stack[stack.length - 1];
-        visited[current] = true;
-        path.push(current);
-        break;
-      }
+    let current = stack.pop();
+    if (!visited[current]) {
+      visited[current] = true;
+      answer += current + " ";
 
-      if (i === graph[current].length - 1) {
-        stack.pop();
-        current = stack[stack.length - 1];
+      for (let i = 0; i < graph[current].length; i++) {
+        if (!visited[graph[current][i]]) {
+          stack.push(graph[current][i]);
+          break;
+        }
       }
     }
   }
-  console.log(path.join(" "));
+  console.log(answer);
 }
