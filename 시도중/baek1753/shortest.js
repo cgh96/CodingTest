@@ -64,13 +64,14 @@ class MinHeap {
           this.heap[leftChildIdx],
         ];
         // 오른쪽 자식이 없다면 왼쪽 자식하나만 있다는 것을 의미한다.
+        return min;
       }
-      return min;
     }
 
     while (
-      this.heap[leftChildIdx][1] < this.heap[currentIdx][1] ||
-      this.heap[rightChildIdx][1] < this.heap[currentIdx][1]
+      this.heap.length - 1 >= this.heap.rightChildIdx &&
+      (this.heap[leftChildIdx][1] < this.heap[currentIdx][1] ||
+        this.heap[rightChildIdx][1] < this.heap[currentIdx][1])
     ) {
       const minIdx =
         this.heap[leftChildIdx][1] > this.heap[rightChildIdx][1]
