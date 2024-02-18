@@ -6,8 +6,8 @@ let input = fs.readFileSync(filePath).toString().trim().split("\n");
 
 const visited = new Array(10).fill(false);
 
-let min = Number.MAX_SAFE_INTEGER;
-let max = Number.MIN_SAFE_INTEGER;
+let min = `${Number.MAX_SAFE_INTEGER}`;
+let max = `${Number.MIN_SAFE_INTEGER}`;
 
 const curNumber = [];
 
@@ -19,14 +19,14 @@ for (let i = 0; i < 10; i++) {
   curNumber.push(i);
   backtracking(0, i);
   visited[i] = false;
-  curNumber.pop(i);
+  curNumber.pop();
 }
 
 console.log(`${max}\n${min}`);
 
 function backtracking(depth = 0, prev) {
-  if (depth >= INEQUALITY_CNT) {
-    const curNum = +curNumber.join("");
+  if (depth === INEQUALITY_CNT) {
+    const curNum = curNumber.join("");
     min = min > curNum ? curNum : min;
     max = max < curNum ? curNum : max;
     return;
@@ -41,9 +41,8 @@ function backtracking(depth = 0, prev) {
       curNumber.push(i);
       backtracking(depth + 1, i);
       visited[i] = false;
-      curNumber.pop(i);
+      curNumber.pop();
     }
-    return;
   }
 
   if (inequalityList[depth] === "<") {
@@ -55,15 +54,14 @@ function backtracking(depth = 0, prev) {
       curNumber.push(i);
       backtracking(depth + 1, i);
       visited[i] = false;
-      curNumber.pop(i);
+      curNumber.pop();
     }
-    return;
   }
 }
 
 /**
  * 1. 0 ~ 9 순서대로 넣는다.
  * 2. 부등호 파악
- *  3 - 1. ">" => 직전 값보다 작은 값부터 넣어본다.
- *  3 - 2. "<" => 직전 값보다 큰 값부터 넣어본다.
+ *  2 - 1. ">" => 직전 값보다 작은 값부터 넣어본다.
+ *  2 - 2. "<" => 직전 값보다 큰 값부터 넣어본다.
  */
