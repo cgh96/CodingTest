@@ -19,3 +19,11 @@ for (let i = COIN_LIST.length - 1; i >= 0; i--) {
 }
 
 console.log(coinNum);
+
+/**
+ * 25
+ * 60
+ * 1000
+ *
+ * 1100
+ */
