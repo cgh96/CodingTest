@@ -24,10 +24,6 @@ console.log(path.map((e) => e.join(" ")).join("\n"));
  */
 
 function moveCircle(bottomNum, topNum, from, other, to) {
-  if (bottomNum < topNum) {
-    return;
-  }
-
   if (bottomNum === topNum) {
     count++;
     path.push([from, to]);
